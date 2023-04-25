@@ -26,6 +26,7 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install -r requirements.txt
+          python -m pip install notebook
       - name: Execute
         run: |
           jupyter nbconvert --to script split_comparisons.ipynb
