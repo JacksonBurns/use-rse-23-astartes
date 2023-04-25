@@ -1,4 +1,4 @@
-name: Check Jupyter Notebook Execution and Compilation
+name: Notebook Continuous Integration
 on:
   push:
     branches: [main]
@@ -12,7 +12,7 @@ jobs:
     defaults:
       run:
         shell: bash -el {0}
-    name: Check Notebook Execution
+    name: Execution
     steps:
       - uses: actions/checkout@v3
       - uses: mamba-org/provision-with-micromamba@main
@@ -32,11 +32,12 @@ jobs:
           jupyter nbconvert --to script split_comparisons.ipynb
           ipython split_comparisons.py
   compilation:
+    requires: execution
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash -el {0}
-    name: Check Notebook Compilation
+    name: Compilation
     steps:
       - uses: actions/checkout@v3
       - uses: mamba-org/provision-with-micromamba@main
@@ -52,3 +53,10 @@ jobs:
       - name: Compile
         run: |
           quarto render split_comparisons.ipynb --to html
+      - name: Push Changes
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add split_comparisons.html split_comparisons_files/*
+          git commit -m "Automated Quarto document update" -a || true
+          git push
