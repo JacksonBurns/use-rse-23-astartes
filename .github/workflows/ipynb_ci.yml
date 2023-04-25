@@ -32,7 +32,7 @@ jobs:
           jupyter nbconvert --to script split_comparisons.ipynb
           ipython split_comparisons.py
   compilation:
-    requires: execution
+    needs: execution
     runs-on: ubuntu-latest
     defaults:
       run:
