@@ -1,4 +1,4 @@
-astartes==1.0.0rc1  # remove version spec after first release
+astartes>=1.0.0rc1  # get the latest version, including development releases
 pandas
 plotly
 tabulate

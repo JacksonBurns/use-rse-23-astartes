@@ -9,7 +9,12 @@ Many different sampling approaches are made available with `astartes`, so using 
 ## Usage
 This repository contains the `split_comparisons.ipynb` file and associated environment files for submission to the United States Research Software Engineer Association 2023 Conference.
 The notebook walks the user through the software tool `astartes` and its application to machine learning validation and testing.
- - To run this notebook in your browser without installation, click here: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/JacksonBurns/use-rse-23-astartes/main?labpath=split_comparisons.ipynb)
- - For local execution, clone this repository and build the environment with `pip install -r requirements.txt` using any version of Python from 3.7 to 3.11, then open `split_comparisons.ipynb` in your preferred notebook IDE.
+You may view the notebook in a number of different ways:
+ 1. \[__Recommended__\] Visit the GitHub pages site [at this link](https://jacksonburns.github.io/use-rse-23-astartes/split_comparisons.html) to view the notebook rendered as an interactive webpage with Quarto.
+ 2. Run this notebook live and in your browser _without installation_ using Binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/JacksonBurns/use-rse-23-astartes/main?labpath=split_comparisons.ipynb)
+ 3. To execute locally:
+    1. clone this repository
+    2. build the environment with `pip install -r requirements.txt` using any version of Python from 3.7 to 3.11
+    3. open `split_comparisons.ipynb` in your preferred notebook IDE, i.e. `jupyter` or VSCode
 
-_Note: this repository is 'forked' from [`astartes`](https://github.com/JacksonBurns/astartes)'s main repository to conform to the submission criteria for RSE23. Visit the `astartes` repository for other examples and additional detail about `astartes`._
+_Note: this repository is based on [`astartes`](https://github.com/JacksonBurns/astartes)'s main repository, with changes to conform to the submission criteria for RSE23. Visit the `astartes` repository for other examples and additional detail about `astartes`._

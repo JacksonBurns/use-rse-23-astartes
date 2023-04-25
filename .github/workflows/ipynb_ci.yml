@@ -40,14 +40,6 @@ jobs:
     name: Compilation
     steps:
       - uses: actions/checkout@v3
-      - uses: mamba-org/provision-with-micromamba@main
-        with:
-          environment-file: false
-          environment-name: temp
-          channels: defaults,conda-forge
-          channel-priority: flexible
-          extra-specs: |
-            python=3.11
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
       - name: Compile
