@@ -1,0 +1,6 @@
+astartes==1.0.0rc1  # remove version spec after first release
+pandas
+plotly
+tabulate
+ipykernel
+nbformat>=4.2.0

@@ -1,0 +1,47 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  Extrapolation and Interpolation in Machine Learning
+  Modeling with Fast Food and `astartes`
+message: Citation file for US RSE 2023
+type: software
+authors:
+  - given-names: Jackson
+    family-names: Burns
+    email: jwburns@mit.edu
+    affiliation: Massachusetts Institute of Technology
+    orcid: 'https://orcid.org/0000-0002-0657-9426'
+  - given-names: Kevin
+    family-names: Spiekermann
+    affiliation: Massachusetts Institute of Technology
+    orcid: 'https://orcid.org/0000-0002-9484-9253'
+  - given-names: William
+    family-names: Green
+    affiliation: Massachusetts Institute of Technology
+    orcid: 'https://orcid.org/0000-0003-2603-9694'
+repository-code: 'https://github.com/JacksonBurns/use-rse-23-astartes'
+abstract: >-
+  Machine learning is a groundbreaking tool for tackling
+  high-dimensional datasets with complex correlations that
+  humans struggle to comprehend. An important nuance of ML
+  is the difference between using a model for interpolation
+  or extrapolation, meaning either inference or prediction.
+  This work will demonstrate visually what interpolation and
+  extrapolation mean in the context of machine learning
+  using astartes, a Python package that makes it easy to
+  tackle in ML modeling. Many different sampling approaches
+  are made available with astartes, so using a very tangible
+  dataset - a fast food menu - we can visualize how
+  different approaches differ and then train and compare ML
+  models.
+keywords:
+  - machine-learning
+  - interpolation
+  - extrapolation
+  - modeling
+  - sampling
+  - reproducible
+  - validation
+license: MIT

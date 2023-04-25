@@ -1,24 +1,18 @@
-name: Check Jupyer Notebook Execution
+name: Check Jupyter Notebook Execution and Compilation
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
-
   workflow_dispatch:
 
 jobs:
-  build:
-    strategy:
-      fail-fast: false
-      matrix:
-        nb-file:
-          ["barrier_prediction_with_RDB7/RDB7_barrier_prediction_example", "train_val_test_split_sklearn_example/train_val_test_split_example", "split_comparisons/split_comparisons"]
+  execution:
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash -el {0}
-    name: Check ${{ matrix.nb-file }} Notebook Execution
+    name: Check Notebook Execution
     steps:
       - uses: actions/checkout@v3
       - uses: mamba-org/provision-with-micromamba@main
@@ -29,12 +23,31 @@ jobs:
           channel-priority: flexible
           extra-specs: |
             python=3.11
-      - name: Install dependencies
+      - name: Install Dependencies
         run: |
-          python -m pip install -e .[molecules,demos]
-          python -m pip install notebook
-      - name: Test Execution
+          python -m pip install -r requirements.txt
+      - name: Execute
         run: |
-          cd examples/$(dirname ${{ matrix.nb-file }})
-          jupyter nbconvert --to script $(basename ${{ matrix.nb-file }}).ipynb
-          ipython $(basename ${{ matrix.nb-file }}).py
+          jupyter nbconvert --to script split_comparisons.ipynb
+          ipython split_comparisons.py
+  compilation:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -el {0}
+    name: Check Notebook Compilation
+    steps:
+      - uses: actions/checkout@v3
+      - uses: mamba-org/provision-with-micromamba@main
+        with:
+          environment-file: false
+          environment-name: temp
+          channels: defaults,conda-forge
+          channel-priority: flexible
+          extra-specs: |
+            python=3.11
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+      - name: Compile
+        run: |
+          quarto render split_comparisons.ipynb --to html
