@@ -15,8 +15,6 @@ jobs:
     name: Execution
     steps:
       - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
       - uses: mamba-org/provision-with-micromamba@main
         with:
           environment-file: false
@@ -42,6 +40,8 @@ jobs:
     name: Compilation
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
       - name: Compile
