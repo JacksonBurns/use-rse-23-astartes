@@ -17,4 +17,8 @@ You may view the notebook in a number of different ways:
     2. build the environment with `pip install -r requirements.txt` using any version of Python from 3.7 to 3.11
     3. open `split_comparisons.ipynb` in your preferred notebook IDE, i.e. `jupyter` or VSCode
 
+### Reproducibilty of USRSE23 Submission
+The `conda-environment.yml` file provides the exact package versions and builds used to run the notebook for submission to the USRSE2023 conference, and `requirements.txt` specifies a set of 'loose' requirements as well as more 'strict' requirements that match the `conda` file but are cross platform.
+`astartes` has been designed to be strictly backwards compatible and reproducible, so this notebook should be identical with all minor releases of `astartes` v1.
+
 _Note: this repository is based on [`astartes`](https://github.com/JacksonBurns/astartes)'s main repository, with changes to conform to the submission criteria for RSE23. Visit the `astartes` repository for other examples and additional detail about `astartes`._
